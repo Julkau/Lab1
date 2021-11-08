@@ -4,6 +4,9 @@ import java.awt.*;
 
 public abstract class Car implements Movable {
 
+    private int x;
+    private int y;
+
     protected int nrDoors; // Number of doors on the car
     protected double currentSpeed;
     protected double enginePower; // Engine power of the car
@@ -44,4 +47,17 @@ public abstract class Car implements Movable {
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    public void move(){
+
+    }
+
+    public void turnLeft(){
+
+    }
+
+    public void turnRight(){
+
+    }
+
 }
