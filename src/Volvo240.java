@@ -13,8 +13,9 @@ public class Volvo240 extends Car{
         modelName = "src.Volvo240";
         stopEngine();
     }
-    
-    private double speedFactor(){
+
+    @Override
+    protected double speedFactor(){
         return enginePower * 0.01 * trimFactor;
     }
 

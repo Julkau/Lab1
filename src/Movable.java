@@ -8,6 +8,12 @@ public interface Movable {
 
     void decrementSpeed(double amount);
 
+    void move();
+
+    void turnRight();
+
+    void turnLeft();
+
     // TODO fix this method according to lab pm
     void gas(double amount);
 

@@ -13,7 +13,7 @@ public abstract class Car implements Movable {
     public Car() {
     }
 
-    private double speedFactor() {
+    protected double speedFactor() {
         return 0;
     }
 
