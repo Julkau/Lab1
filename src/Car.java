@@ -37,12 +37,10 @@ public abstract class Car implements Movable {
         color = clr;
     }
 
-    @Override
     public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    @Override
     public void stopEngine() {
         currentSpeed = 0;
     }
