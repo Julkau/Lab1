@@ -13,51 +13,64 @@ public abstract class Car implements Movable {
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
-    public Car() {
-    }
-
     protected double speedFactor() {
         return 0;
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
 
-    public double getEnginePower(){
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Color clr){
+    public void setColor(Color clr) {
         color = clr;
     }
 
-    public void startEngine(){
+    @Override
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    @Override
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
-    public void move(){
+    @Override
+    public void move() {
 
     }
 
-    public void turnLeft(){
+    @Override
+    public void turnLeft() {
 
     }
 
-    public void turnRight(){
+    @Override
+    public void turnRight() {
 
     }
 
+    // TODO fix this method according to lab pm
+    @Override
+    public void gas(double amount) {
+        incrementSpeed(amount);
+    }
+
+    // TODO fix this method according to lab pm
+    @Override
+    public void brake(double amount) {
+        decrementSpeed(amount);
+    }
 }

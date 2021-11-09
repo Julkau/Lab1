@@ -2,12 +2,6 @@ package src;
 
 public interface Movable {
 
-    int x = 0;
-
-    int y = 0;
-
-    double currentSpeed = 0; // The current speed of the car
-    
     void incrementSpeed(double amount);
 
     void decrementSpeed(double amount);
@@ -18,10 +12,12 @@ public interface Movable {
 
     void turnLeft();
 
-    // TODO fix this method according to lab pm
+    void startEngine();
+
+    void stopEngine();
+
     void gas(double amount);
 
-    // TODO fix this method according to lab pm
     void brake(double amount);
 
 }

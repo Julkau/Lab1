@@ -4,7 +4,7 @@ import src.Volvo240;
 import java.awt.*;
 
 public class RunCars {
-    public static void main(String[] arg){
+    public static void main(String[] arg) {
         Volvo240 volvo = new Volvo240(Color.BLUE);
         Saab95 saab = new Saab95(Color.BLACK);
 
