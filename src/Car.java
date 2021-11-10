@@ -2,6 +2,8 @@ package src;
 
 import java.awt.*;
 
+// TODO: Override toString method for the cars!
+
 public abstract class Car implements Movable {
 
     private int x;
