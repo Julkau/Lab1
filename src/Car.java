@@ -8,7 +8,7 @@ public abstract class Car implements Movable {
 
     private double x;
     private double y;
-    private DIRECTION direction;
+    private static DIRECTION direction;
     private boolean engineOn;
 
 
@@ -81,7 +81,7 @@ public abstract class Car implements Movable {
         } else if (this.direction == DIRECTION.EAST) {
             x += getCurrentSpeed();
         } else if (this.direction == DIRECTION.SOUTH) {
-            x -= getCurrentSpeed();
+            y -= getCurrentSpeed();
         } else if (this.direction == DIRECTION.WEST) {
             x -= getCurrentSpeed();
         }
@@ -116,10 +116,23 @@ public abstract class Car implements Movable {
         decrementSpeed(amount);
     }
 
-    enum DIRECTION {
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST
+    enum DIRECTION{
+        NORTH, EAST, SOUTH, WEST;
+
+        private static DIRECTION[] vals = values();
+        public DIRECTION right(DIRECTION direction){
+            if (direction.equals(WEST)){
+                return direction = NORTH;
+            } else {
+                return direction = vals[(this.ordinal() + 1) % vals.length];
+            }
+        }
+        public DIRECTION left(DIRECTION direction){
+            if (direction.equals(NORTH)){
+                return direction = WEST;
+            } else {
+                return direction = vals[(this.ordinal() - 1) % vals.length];
+            }
+        }
     }
 }
