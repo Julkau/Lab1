@@ -16,9 +16,4 @@ public interface Movable {
     void turnRight();
 
     void turnLeft();
-
-    void gas(double amount);
-
-    void brake(double amount);
-
 }
