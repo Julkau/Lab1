@@ -6,8 +6,10 @@ import java.awt.*;
 
 public abstract class Car implements Movable {
 
-    private int x;
-    private int y;
+    private double x;
+    private double y;
+    private DIRECTION direction;
+
 
     protected int nrDoors; // Number of doors on the car
     protected double currentSpeed;
@@ -18,6 +20,7 @@ public abstract class Car implements Movable {
     public Car(){
         this.x = 0;
         this.y = 0;
+        this.direction = DIRECTION.NORTH;
     }
 
     protected double speedFactor() {
@@ -42,10 +45,10 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the current coordinate in ints.
-     * @return Integer array of coordinate x and y.
+     * @return Integer array of coordinate x and y [-,+].
      */
-    public Integer[] getCoordinate() {
-        return new Integer[]{this.x, this.y};
+    public Double[] getCoordinate() {
+        return new Double[]{this.x, this.y};
     }
 
     public void setColor(Color clr) {
@@ -60,8 +63,20 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
     }
 
+    /**
+     * Move x or y in direction based on DIRECTION of instance Car. Positive y is north, positive x is east.
+     */
     @Override
     public void move() {
+        if(this.direction == DIRECTION.NORTH) {
+            y += getCurrentSpeed();
+        } else if (this.direction == DIRECTION.EAST) {
+            x += getCurrentSpeed();
+        } else if (this.direction == DIRECTION.SOUTH) {
+            x -= getCurrentSpeed();
+        } else if (this.direction == DIRECTION.WEST) {
+            x -= getCurrentSpeed();
+        }
 
     }
 
@@ -83,5 +98,12 @@ public abstract class Car implements Movable {
     // TODO fix this method according to lab pm
     public void brake(double amount) {
         decrementSpeed(amount);
+    }
+
+    enum DIRECTION {
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
     }
 }
