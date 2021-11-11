@@ -15,6 +15,11 @@ public abstract class Car implements Movable {
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
+    public Car(){
+        this.x = 0;
+        this.y = 0;
+    }
+
     protected double speedFactor() {
         return 0;
     }
@@ -33,6 +38,14 @@ public abstract class Car implements Movable {
 
     public Color getColor() {
         return color;
+    }
+
+    /**
+     * Gets the current coordinate in ints.
+     * @return Integer array of coordinate x and y.
+     */
+    public Integer[] getCoordinate() {
+        return new Integer[]{this.x, this.y};
     }
 
     public void setColor(Color clr) {
