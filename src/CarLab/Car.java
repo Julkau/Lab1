@@ -1,4 +1,4 @@
-package src;
+package CarLab;
 
 import java.awt.*;
 

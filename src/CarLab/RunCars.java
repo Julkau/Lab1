@@ -1,5 +1,4 @@
-import src.Saab95;
-import src.Volvo240;
+package CarLab;
 
 import java.awt.*;
 

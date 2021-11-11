@@ -1,4 +1,4 @@
-package src;
+package CarLab;
 
 import java.awt.*;
 
@@ -12,7 +12,7 @@ public class Saab95 extends Car {
         this.color = Color.red;
         enginePower = 125;
         turboOn = false;
-        modelName = "src.Saab95";
+        modelName = "CarLab.Saab95";
         stopEngine();
     }
 
