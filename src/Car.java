@@ -9,6 +9,7 @@ public abstract class Car implements Movable {
     private double x;
     private double y;
     private DIRECTION direction;
+    private boolean engineOn;
 
 
     protected int nrDoors; // Number of doors on the car
@@ -21,6 +22,7 @@ public abstract class Car implements Movable {
         this.x = 0;
         this.y = 0;
         this.direction = DIRECTION.NORTH;
+        this.engineOn = false;
     }
 
     protected double speedFactor() {
@@ -43,8 +45,12 @@ public abstract class Car implements Movable {
         return color;
     }
 
+    public boolean getEngineOn() {
+        return engineOn;
+    }
+
     /**
-     * Gets the current coordinate in ints.
+     * Gets the current coordinate in doubles.
      * @return Integer array of coordinate x and y [-,+].
      */
     public Double[] getCoordinate() {
@@ -57,10 +63,12 @@ public abstract class Car implements Movable {
 
     public void startEngine() {
         currentSpeed = 0.1;
+        engineOn = true;
     }
 
     public void stopEngine() {
         currentSpeed = 0;
+        engineOn = false;
     }
 
     /**
@@ -90,12 +98,20 @@ public abstract class Car implements Movable {
 
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Gas method will accelerate with increaseSpeed() but only if engine is on.
+     * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
+     */
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if(engineOn) {
+            incrementSpeed(amount);
+        }
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Brake method will decelerate with decrementSpeed().
+     * @param amount is the positive amount [0,1] to decelerate, is multiplied with speedFactor in decrementSpeed.
+     */
     public void brake(double amount) {
         decrementSpeed(amount);
     }

@@ -7,8 +7,16 @@ package src;
 
 public interface Movable {
 
+    /**
+     * Increments speed based on class-factors.
+     * @param amount is the positive amount to increase.
+     */
     void incrementSpeed(double amount);
 
+    /**
+     * Decreses speed based on class-factors. Should not change speed to go below zero.
+     * @param amount is the positive amount to decrease.
+     */
     void decrementSpeed(double amount);
 
     void move();
