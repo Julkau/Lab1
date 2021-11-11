@@ -85,17 +85,16 @@ public abstract class Car implements Movable {
         } else if (this.direction == DIRECTION.WEST) {
             x -= getCurrentSpeed();
         }
-
     }
 
     @Override
     public void turnLeft() {
-
+        direction = direction.left();
     }
 
     @Override
     public void turnRight() {
-
+        direction = direction.right();
     }
 
     /**
@@ -120,14 +119,14 @@ public abstract class Car implements Movable {
         NORTH, EAST, SOUTH, WEST;
 
         private static DIRECTION[] vals = values();
-        public DIRECTION right(DIRECTION direction){
+        public DIRECTION right(){
             if (direction.equals(WEST)){
                 return direction = NORTH;
             } else {
                 return direction = vals[(this.ordinal() + 1) % vals.length];
             }
         }
-        public DIRECTION left(DIRECTION direction){
+        public DIRECTION left(){
             if (direction.equals(NORTH)){
                 return direction = WEST;
             } else {
