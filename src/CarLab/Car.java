@@ -8,9 +8,8 @@ public abstract class Car implements Movable {
 
     private double x;
     private double y;
-    private static DIRECTION direction;
+    private DIRECTION direction;
     private boolean engineOn;
-
 
     protected int nrDoors; // Number of doors on the car
     protected double currentSpeed;
@@ -93,12 +92,12 @@ public abstract class Car implements Movable {
 
     @Override
     public void turnLeft() {
-        direction = direction.left();
+        direction = direction.left(direction);
     }
 
     @Override
     public void turnRight() {
-        direction = direction.right();
+        direction = direction.right(direction);
     }
 
 
@@ -135,19 +134,20 @@ public abstract class Car implements Movable {
     public enum DIRECTION{
         NORTH, EAST, SOUTH, WEST;
 
-        private static DIRECTION[] vals = values();
-        public DIRECTION right(){
+        private static DIRECTION[] directionValues = values();
+
+        public DIRECTION right(DIRECTION direction){
             if (direction.equals(WEST)){
                 return direction = NORTH;
             } else {
-                return direction = vals[(this.ordinal() + 1) % vals.length];
+                return direction = directionValues[(this.ordinal() + 1) % directionValues.length];
             }
         }
-        public DIRECTION left(){
+        public DIRECTION left(DIRECTION direction){
             if (direction.equals(NORTH)){
                 return direction = WEST;
             } else {
-                return direction = vals[(this.ordinal() - 1) % vals.length];
+                return direction = directionValues[(this.ordinal() - 1) % directionValues.length];
             }
         }
     }
