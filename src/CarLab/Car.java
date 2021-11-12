@@ -57,6 +57,10 @@ public abstract class Car implements Movable {
         return new Double[]{this.x, this.y};
     }
 
+    public DIRECTION getDirection() {
+        return direction;
+    }
+
     public void setColor(Color clr) {
         color = clr;
     }
@@ -97,6 +101,19 @@ public abstract class Car implements Movable {
         direction = direction.right();
     }
 
+
+    /**
+     * Increments speed based on class-factors.
+     * @param amount is the positive amount to increase.
+     */
+    protected abstract void incrementSpeed(double amount);
+
+    /**
+     * Decreases speed based on class-factors. Should not change speed to go below zero.
+     * @param amount is the positive amount to decrease.
+     */
+    protected abstract void decrementSpeed(double amount);
+
     /**
      * Gas method will accelerate with increaseSpeed() but only if engine is on.
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
@@ -115,7 +132,7 @@ public abstract class Car implements Movable {
         decrementSpeed(amount);
     }
 
-    enum DIRECTION{
+    public enum DIRECTION{
         NORTH, EAST, SOUTH, WEST;
 
         private static DIRECTION[] vals = values();
