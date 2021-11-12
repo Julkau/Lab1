@@ -17,7 +17,7 @@ public abstract class Car implements Movable {
     protected Color color; // Color of the car
     protected String modelName; // The car model name
 
-    public Car(){
+    public Car() {
         this.x = 0;
         this.y = 0;
         this.direction = DIRECTION.NORTH;
@@ -50,6 +50,7 @@ public abstract class Car implements Movable {
 
     /**
      * Gets the current coordinate in doubles.
+     *
      * @return Integer array of coordinate x and y [-,+].
      */
     public Double[] getCoordinate() {
@@ -79,13 +80,13 @@ public abstract class Car implements Movable {
      */
     @Override
     public void move() {
-        if(this.direction == DIRECTION.NORTH) {
+        if (direction == DIRECTION.NORTH) {
             y += getCurrentSpeed();
-        } else if (this.direction == DIRECTION.EAST) {
+        } else if (direction == DIRECTION.EAST) {
             x += getCurrentSpeed();
-        } else if (this.direction == DIRECTION.SOUTH) {
+        } else if (direction == DIRECTION.SOUTH) {
             y -= getCurrentSpeed();
-        } else if (this.direction == DIRECTION.WEST) {
+        } else if (direction == DIRECTION.WEST) {
             x -= getCurrentSpeed();
         }
     }
@@ -103,52 +104,53 @@ public abstract class Car implements Movable {
 
     /**
      * Increments speed based on class-factors.
+     *
      * @param amount is the positive amount to increase.
      */
     protected abstract void incrementSpeed(double amount);
 
     /**
      * Decreases speed based on class-factors. Should not change speed to go below zero.
+     *
      * @param amount is the positive amount to decrease.
      */
     protected abstract void decrementSpeed(double amount);
 
     /**
      * Gas method will accelerate with increaseSpeed() but only if engine is on.
+     *
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
      */
     public void gas(double amount) {
-        if(engineOn) {
+        if (engineOn) {
             incrementSpeed(amount);
         }
     }
 
     /**
      * Brake method will decelerate with decrementSpeed().
+     *
      * @param amount is the positive amount [0,1] to decelerate, is multiplied with speedFactor in decrementSpeed.
      */
     public void brake(double amount) {
         decrementSpeed(amount);
     }
 
-    public enum DIRECTION{
+    /**
+     * Direction enum with NORTH, EAST, SOUTH, and WEST. The methods right() and left() should wrap around the
+     * directions (West goes to North, and North goes to West).
+     */
+    public enum DIRECTION {
         NORTH, EAST, SOUTH, WEST;
 
         private static DIRECTION[] directionValues = values();
 
-        public DIRECTION right(DIRECTION direction){
-            if (direction.equals(WEST)){
-                return direction = NORTH;
-            } else {
-                return direction = directionValues[(this.ordinal() + 1) % directionValues.length];
-            }
+        public DIRECTION right(DIRECTION direction) {
+            return directionValues[(direction.ordinal() + 1) % directionValues.length];
         }
-        public DIRECTION left(DIRECTION direction){
-            if (direction.equals(NORTH)){
-                return direction = WEST;
-            } else {
-                return direction = directionValues[(this.ordinal() - 1) % directionValues.length];
-            }
+
+        public DIRECTION left(DIRECTION direction) {
+            return directionValues[(direction.ordinal() - 1)];
         }
     }
 }
