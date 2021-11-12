@@ -23,19 +23,18 @@ public abstract class Car implements Movable {
         this.direction = DIRECTION.NORTH;
         this.engineOn = false;
     }
-
     protected double speedFactor() {
         return 0;
     }
-
+    // Tested
     public int getNrDoors() {
         return nrDoors;
     }
-
+    // Tested
     public double getEnginePower() {
         return enginePower;
     }
-
+    // Tested
     public double getCurrentSpeed() {
         return currentSpeed;
     }
@@ -150,7 +149,11 @@ public abstract class Car implements Movable {
         }
 
         public DIRECTION left(DIRECTION direction) {
-            return directionValues[(direction.ordinal() - 1)];
+            if (direction.equals(NORTH)){
+                return WEST;
+            } else {
+                return directionValues[(direction.ordinal() - 1)];
+            }
         }
     }
 }
