@@ -81,9 +81,9 @@ public class TestCar {
 
     @Test
     public void car_should_have_a_colour(){
-        Car saab95 = new Saab95();
+        Car saab95 = new Saab95(Color.BLACK);
         saab95.setColor(Color.BLACK);
-        assertEquals(saab95.getColor().toString(), "BLACK");
+        assertEquals(saab95.getColor().toString(), Color.BLACK.toString());
     }
 
 }
