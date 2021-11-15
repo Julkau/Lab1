@@ -85,6 +85,7 @@ public class TestCar {
         saab95.setColor(Color.BLACK);
         assertEquals(saab95.getColor().toString(), Color.BLACK.toString());
     }
+
     @Test
     public void gas_should_only_increment_speed_when_engine_on() {
         Car saab95 = new Saab95();
@@ -131,13 +132,6 @@ public class TestCar {
         assertEquals( 0 , saab95.getCoordinate()[0]);
         assertEquals(0, saab95.getCoordinate()[1]);
 
-    }
-
-    @Test
-    public void current_speed_should_be_between_0_and_enginePower() {
-        Car volvo = new Volvo240();
-        volvo.startEngine();
-        volvo.gas(1);
     }
 
     @Test
