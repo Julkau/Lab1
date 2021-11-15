@@ -128,7 +128,16 @@ public class TestCar {
     @Test
     public void car_should_always_start_on_coordinate_zero(){
         Car saab95 = new Saab95();
-        assertEquals(0 , saab95.getCoordinate()[0]);
-        assertEquals(0, saab95.getCoordinate()[1]);
+        System.out.println(saab95.getCoordinate());
+        //assertEquals( 0 , saab95.getCoordinate());
+
     }
+
+    @Test
+    public void current_speed_should_be_between_0_and_enginePower() {
+        Car volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.gas(1);
+    }
+
 }
