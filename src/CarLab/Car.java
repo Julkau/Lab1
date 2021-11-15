@@ -126,7 +126,6 @@ public abstract class Car implements Movable {
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
      */
     public void gas(double amount) {
-
         if (engineOn) {
             incrementSpeed(amount);
         }
