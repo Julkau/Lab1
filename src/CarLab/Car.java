@@ -38,11 +38,11 @@ public abstract class Car implements Movable {
     public double getCurrentSpeed() {
         return currentSpeed;
     }
-
+    // Tested
     public Color getColor() {
         return color;
     }
-
+    // Tested
     public boolean getEngineOn() {
         return engineOn;
     }
@@ -73,6 +73,7 @@ public abstract class Car implements Movable {
         currentSpeed = 0;
         engineOn = false;
     }
+
 
     /**
      * Move x or y in direction based on DIRECTION of instance Car. Positive y is north, positive x is east.
@@ -106,14 +107,18 @@ public abstract class Car implements Movable {
      *
      * @param amount is the positive amount to increase.
      */
-    protected abstract void incrementSpeed(double amount);
+    protected void incrementSpeed(double amount){
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+    }
 
     /**
      * Decreases speed based on class-factors. Should not change speed to go below zero.
      *
      * @param amount is the positive amount to decrease.
      */
-    protected abstract void decrementSpeed(double amount);
+    protected void decrementSpeed(double amount){
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
 
     /**
      * Gas method will accelerate with increaseSpeed() but only if engine is on.

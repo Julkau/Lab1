@@ -116,4 +116,21 @@ public class TestCar {
         assertEquals(0, saab95.getCurrentSpeed());
     }
 
+    @Test
+    public void engineOn_should_change_when_engine_is_switched_off() {
+        Car saab95 = new Saab95();
+        saab95.startEngine();
+        assertTrue(saab95.getEngineOn());
+        saab95.stopEngine();
+        assertFalse(saab95.getEngineOn());
+    }
+
+    @Test
+    public void car_should_always_start_on_coordinate_zero(){
+        Car saab95 = new Saab95();
+        System.out.println(saab95.getCoordinate());
+        //assertEquals( 0 , saab95.getCoordinate());
+
+    }
+
 }
