@@ -22,9 +22,7 @@ public abstract class Car implements Movable {
         this.direction = DIRECTION.NORTH;
         this.engineOn = false;
     }
-    protected double speedFactor() {
-        return 0;
-    }
+    protected abstract double speedFactor();
     // Tested
     public int getNrDoors() {
         return nrDoors;

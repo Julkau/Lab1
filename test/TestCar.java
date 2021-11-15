@@ -108,7 +108,10 @@ public class TestCar {
     @Test
     public void gas_should_only_increment_speed_when_engine_on() {
         Car saab95 = new Saab95();
+        Car volvo = new Volvo240();
         saab95.gas(1);
+        volvo.gas(1);
+        assertEquals(0, saab95.getCurrentSpeed());
         assertEquals(0, saab95.getCurrentSpeed());
     }
 
@@ -131,9 +134,12 @@ public class TestCar {
     @Test
     public void brake_should_not_brake_to_negative_speed() {
         Car saab95 = new Saab95();
+        Car volvo = new Volvo240();
         saab95.gas(0.2);
+        volvo.gas(0.2);
         saab95.brake(1);
-        assertEquals(0, saab95.getCurrentSpeed());
+        volvo.brake(1);
+        assertEquals(0, saab95.getCurrentSpeed() + volvo.getCurrentSpeed());
     }
 
     @Test
@@ -150,7 +156,11 @@ public class TestCar {
         Car saab95 = new Saab95();
         assertEquals( 0 , saab95.getCoordinate()[0]);
         assertEquals(0, saab95.getCoordinate()[1]);
+    }
 
+    @Test
+    public void trim_factor_get_should_return_trim_factor() {
+        assertEquals(1.25, Volvo240.getTrimFactor());
     }
 
     @Test
