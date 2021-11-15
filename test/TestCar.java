@@ -140,4 +140,24 @@ public class TestCar {
         volvo.gas(1);
     }
 
+    @Test
+    public void turbo_should_start_off() {
+        Saab95 saab95 = new Saab95();
+        assertFalse(saab95.getTurboOn());
+    }
+
+    @Test
+    public void turbo_should_turn_on() {
+        Saab95 saab95 = new Saab95();
+        saab95.setTurboOn();
+        assertTrue(saab95.getTurboOn());
+    }
+
+    @Test
+    public void turbo_should_turn_off() {
+        Saab95 saab95 = new Saab95();
+        saab95.setTurboOn();
+        saab95.setTurboOff();
+        assertFalse(saab95.getTurboOn());
+    }
 }

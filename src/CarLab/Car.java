@@ -2,7 +2,6 @@ package CarLab;
 
 import java.awt.*;
 
-// TODO: Override toString method for the cars!
 
 public abstract class Car implements Movable {
 
@@ -125,7 +124,7 @@ public abstract class Car implements Movable {
      *
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
      */
-    public void gas(double amount) {
+    public void gas(double amount) throws IllegalArgumentException {
         if(1 - amount < 0 || 1 - amount > 1) {
             throw new IllegalArgumentException("Gas amount should be within [0,1]");
         }
@@ -139,7 +138,7 @@ public abstract class Car implements Movable {
      *
      * @param amount is the positive amount [0,1] to decelerate, is multiplied with speedFactor in decrementSpeed.
      */
-    public void brake(double amount) {
+    public void brake(double amount) throws IllegalArgumentException {
         if(1 - amount < 0 || 1 - amount > 1) {
             throw new IllegalArgumentException("Brake amount should be within [0,1]");
         }
