@@ -13,7 +13,8 @@ public class TestCar {
     public void test_turn_left() {
         Car saab95 = new Saab95();
         saab95.turnLeft();
-        assertEquals(Car.DIRECTION.WEST, saab95.getDirection());
+        saab95.turnLeft();
+        assertEquals(Car.DIRECTION.SOUTH, saab95.getDirection());
     }
 
     @Test
@@ -25,6 +26,19 @@ public class TestCar {
         saab95.turnRight();
         assertEquals(Car.DIRECTION.NORTH, saab95.getDirection());
     }
+
+    @Test
+    public void test_all_directions() {
+        Car saab95 = new Saab95();
+        assertEquals(Car.DIRECTION.NORTH, saab95.getDirection());
+        saab95.turnRight();
+        assertEquals(Car.DIRECTION.EAST, saab95.getDirection());
+        saab95.turnRight();
+        assertEquals(Car.DIRECTION.SOUTH, saab95.getDirection());
+        saab95.turnRight();
+        assertEquals(Car.DIRECTION.WEST, saab95.getDirection());
+    }
+
 
     @Test
     public void should_move_on_y_axis_only_from_zero() {
