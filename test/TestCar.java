@@ -30,12 +30,17 @@ public class TestCar {
     @Test
     public void test_all_directions() {
         Car saab95 = new Saab95();
+        saab95.startEngine();
+        saab95.move();
         assertEquals(Car.DIRECTION.NORTH, saab95.getDirection());
         saab95.turnRight();
+        saab95.move();
         assertEquals(Car.DIRECTION.EAST, saab95.getDirection());
         saab95.turnRight();
+        saab95.move();
         assertEquals(Car.DIRECTION.SOUTH, saab95.getDirection());
         saab95.turnRight();
+        saab95.move();
         assertEquals(Car.DIRECTION.WEST, saab95.getDirection());
     }
 
