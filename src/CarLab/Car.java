@@ -121,6 +121,9 @@ public abstract class Car implements Movable {
      * @param amount is the positive amount [0,1] to accelerate, is multiplied with speedFactor in incrementSpeed.
      */
     public void gas(double amount) {
+        if(1 - amount < 0 || 1 - amount > 1) {
+            throw new IllegalArgumentException("Gas amount should be within [0,1]");
+        }
         if (engineOn) {
             incrementSpeed(amount);
         }
@@ -132,6 +135,11 @@ public abstract class Car implements Movable {
      * @param amount is the positive amount [0,1] to decelerate, is multiplied with speedFactor in decrementSpeed.
      */
     public void brake(double amount) {
+        if(1 - amount < 0 || 1 - amount > 1) {
+            throw new IllegalArgumentException("Brake amount should be within [0,1]");
+        }
+        if(amount > currentSpeed)
+            amount = currentSpeed;
         decrementSpeed(amount);
     }
 
