@@ -103,7 +103,7 @@ public abstract class Car implements Movable {
 
 
     /**
-     * Increments speed based on class-factors.
+     * Increments speed based on class-factors. Speed should not go above enginePower or below zero.
      *
      * @param amount is the positive amount to increase.
      */
@@ -112,7 +112,7 @@ public abstract class Car implements Movable {
     }
 
     /**
-     * Decreases speed based on class-factors. Should not change speed to go below zero.
+     * Decreases speed based on class-factors. Speed should not go above enginePower or below zero.
      *
      * @param amount is the positive amount to decrease.
      */
@@ -155,7 +155,7 @@ public abstract class Car implements Movable {
     public enum DIRECTION {
         NORTH, EAST, SOUTH, WEST;
 
-        private static DIRECTION[] directionValues = values();
+        private static final DIRECTION[] directionValues = values();
 
         public DIRECTION right(DIRECTION direction) {
             return directionValues[(direction.ordinal() + 1) % directionValues.length];

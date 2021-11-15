@@ -133,4 +133,11 @@ public class TestCar {
 
     }
 
+    @Test
+    public void current_speed_should_be_between_0_and_enginePower() {
+        Car volvo = new Volvo240();
+        volvo.startEngine();
+        volvo.gas(1);
+    }
+
 }
