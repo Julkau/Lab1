@@ -157,30 +157,4 @@ public class TestCar {
         assertEquals( 0 , saab95.getCoordinate()[0]);
         assertEquals(0, saab95.getCoordinate()[1]);
     }
-
-    @Test
-    public void trim_factor_get_should_return_trim_factor() {
-        assertEquals(1.25, Volvo240.getTrimFactor());
-    }
-
-    @Test
-    public void turbo_should_start_off() {
-        Saab95 saab95 = new Saab95();
-        assertFalse(saab95.getTurboOn());
-    }
-
-    @Test
-    public void turbo_should_turn_on() {
-        Saab95 saab95 = new Saab95();
-        saab95.setTurboOn();
-        assertTrue(saab95.getTurboOn());
-    }
-
-    @Test
-    public void turbo_should_turn_off() {
-        Saab95 saab95 = new Saab95();
-        saab95.setTurboOn();
-        saab95.setTurboOff();
-        assertFalse(saab95.getTurboOn());
-    }
 }
